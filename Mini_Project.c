@@ -63,16 +63,16 @@ int main(void) {
     long long in_degree = 0;
     long long out_degree = 0;
 
-    clock_t start, end;
+    clock_t start_time, end_time;
     double computational_time;
 
-    start = clock();
+    start_time = clock();
 
     sum_of_deg(size, matrix, &in_degree, &out_degree);
 
-    end = clock();
+    end_time = clock();
 
-    computational_time = ((double) (end - start)) / CLOCKS_PER_SEC;
+    computational_time = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
 
     printf("\nSum of In-Degrees:  %lld\n", in_degree);
     printf("Sum of Out-Degrees: %lld\n\n", out_degree);
