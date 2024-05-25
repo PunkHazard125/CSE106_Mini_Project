@@ -11,7 +11,6 @@ void generate_matrix(int size, int **matrix) {
             matrix[i][j] = rand() % 2;
         }
     }
-
 }
 
 void sum_of_deg(int size, int **matrix, long long *in_degree, long long *out_degree) {
@@ -39,7 +38,6 @@ void sum_of_deg(int size, int **matrix, long long *in_degree, long long *out_deg
         *in_degree = *in_degree + row_sum;
         *out_degree = *out_degree + col_sum;
     }
-
 }
 
 int main(void) {
