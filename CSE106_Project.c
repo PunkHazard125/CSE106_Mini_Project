@@ -13,7 +13,7 @@ void generate_matrix(int size, int **matrix) {
     }
 }
 
-void sum_of_deg(int size, int **matrix, long long *in_degree, long long *out_degree) {
+void sum_of_deg(int size, int **matrix, long long *in_degree, long long *out_degree, long long *vertex_in_deg, long long *vertex_out_deg) {
 
     long long row_sum = 0, col_sum = 0;
 
@@ -27,6 +27,9 @@ void sum_of_deg(int size, int **matrix, long long *in_degree, long long *out_deg
             if (matrix[i][j] != 0)
             {
                 row_sum++;
+
+                vertex_in_deg[i]++;
+                vertex_out_deg[j]++;
             }
 
             if (matrix[j][i] != 0)
@@ -56,7 +59,14 @@ int main(void) {
 
     srand(time(NULL));
 
-    generate_matrix(size, matrix);
+    long long *vertex_in_deg = malloc(size * sizeof(long long));
+    long long *vertex_out_deg = malloc(size * sizeof(long long));
+
+    for (int i = 0; i < size; i++)
+    {
+        vertex_in_deg[i] = 0;
+        vertex_out_deg[i] = 0;
+    }
 
     long long in_degree = 0;
     long long out_degree = 0;
@@ -66,7 +76,9 @@ int main(void) {
 
     start_time = clock();
 
-    sum_of_deg(size, matrix, &in_degree, &out_degree);
+    generate_matrix(size, matrix);
+
+    sum_of_deg(size, matrix, &in_degree, &out_degree, vertex_in_deg, vertex_out_deg);
 
     end_time = clock();
 
