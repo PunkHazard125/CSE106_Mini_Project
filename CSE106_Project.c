@@ -28,8 +28,8 @@ void sum_of_deg(int size, int **matrix, long long *in_degree, long long *out_deg
             {
                 row_sum++;
 
-                vertex_in_deg[i]++;
-                vertex_out_deg[j]++;
+                vertex_in_deg[j]++;
+                vertex_out_deg[i]++;
             }
 
             if (matrix[j][i] != 0)
@@ -38,8 +38,8 @@ void sum_of_deg(int size, int **matrix, long long *in_degree, long long *out_deg
             }
         }
 
-        *in_degree = *in_degree + row_sum;
-        *out_degree = *out_degree + col_sum;
+        *in_degree = *in_degree + col_sum;
+        *out_degree = *out_degree + row_sum;
     }
 }
 
