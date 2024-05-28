@@ -99,6 +99,9 @@ int main(void) {
         printf("Some Error Must Have Occured.\n\n");
     }
 
+    free(vertex_in_deg);
+    free(vertex_out_deg);
+
     for (int i = 0; i < size; i++) 
     {
         free(matrix[i]);
